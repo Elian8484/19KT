@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Hello&display=swap');
+
+body {
+    font-family: 'Hello', sans-serif; /* Cambiar a la fuente Hello */
+    background-image: url('6.jpeg'); /* Establecer la imagen de fondo */
+    background-size: cover; /* Cubrir toda la pantalla */
+    background-position: center; /* Centrar la imagen */
+    color: #242121; /* Color del texto */
+    text-align: center;
+    height: 100vh; /* Altura completa de la ventana */
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.gallery {
+    position: relative; /* Para posicionar las imágenes en el arco */
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* No permitir que las imágenes se envuelvan */
+    overflow: hidden; /* Ocultar el desbordamiento */
+}
+
+/* Estilo de las imágenes */
+.animated-image {
+    width: 100px; /* Ajusta el tamaño según sea necesario */
+    margin: 0 10px; /* Espaciado horizontal */
+    transition: transform 0.5s; /* Transición suave para el efecto de movimiento */
+    border-radius: 50%; /* Bordes redondeados para un efecto más suave */
+}
+
+/* Efecto de movimiento en arco */
+@keyframes moveInArc {
+    0% {
+        transform: rotate(0deg) translateX(200px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(200px) rotate(-360deg);
+    }
+}
+
+.gallery {
+    animation: moveInArc 10s infinite; /* Animación continua en arco */
+}
+
+.center-text {
+    position: absolute; /* Para centrar el texto */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar el texto */
+    z-index: 1; /* Asegurarse de que esté por encima de otras capas */
+    animation: moveDown 5s infinite alternate; /* Animación de movimiento vertical */
+}
+
+@keyframes moveDown {
+    0% {
+        transform: translate(-50%, -50%) translateY(-20px); /* Comienza un poco más arriba */
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(20px); /* Mueve hacia abajo */
+    }
+}
